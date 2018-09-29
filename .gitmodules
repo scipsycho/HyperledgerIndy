@@ -1,0 +1,6 @@
+[submodule "indy-node"]
+	path = indy-node
+	url = https://github.com/scipsycho/indy-node
+[submodule "indy-plenum"]
+	path = indy-plenum
+	url = https://github.com/scipsycho/indy-plenum
