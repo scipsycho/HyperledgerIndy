@@ -62,3 +62,9 @@ RUN pip3 install -e .[tests]
 #installing flake8
 RUN pip3 install flake8
 
+
+#installing indy-sdk
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68DB5E88
+RUN add-apt-repository "deb https://repo.sovrin.org/sdk/deb xenial {release channel}"
+RUN apt-get update
+RUN apt-get install -y libindy
