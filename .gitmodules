@@ -4,3 +4,6 @@
 [submodule "indy-plenum"]
 	path = indy-plenum
 	url = https://github.com/scipsycho/indy-plenum
+[submodule "indy-sdk"]
+	path = indy-sdk
+	url = https://github.com/scipsycho/indy-sdk.git
