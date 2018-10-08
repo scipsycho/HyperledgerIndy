@@ -1,2 +1,2 @@
 # HyperledgerIndy
-## A project made over Hyperledger's Indy
+## A project made using Hyperledger's Indy
