@@ -68,3 +68,24 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68DB5E88
 RUN add-apt-repository "deb https://repo.sovrin.org/sdk/deb xenial {release channel}"
 RUN apt-get update
 RUN apt-get install -y libindy
+
+#installing docker
+RUN apt-get update
+RUN apt-get install curl
+
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+RUN apt-key fingerprint 0EBFCD88
+
+RUN add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+	
+RUN apt-get update
+RUN apt-get update
+RUN apt-get install -y docker-ce
+
+#post installation steps of docker
+RUN usermod -aG docker `whoami`
+RUN service docker start
