@@ -47,9 +47,7 @@ RUN mkdir work_dir
 WORKDIR work_dir
 
 #copying indy_node and indy_plenum
-COPY indy-node ./indy-node
-COPY indy-plenum ./indy-plenum
-
+COPY . .
 #installing indy-node
 WORKDIR indy-node
 RUN pip3 install --upgrade setuptools
