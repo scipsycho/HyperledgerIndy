@@ -46,20 +46,10 @@ RUN apt-get -y install git
 RUN mkdir work_dir
 WORKDIR work_dir
 
-#copying indy_node and indy_plenum
-COPY . .
-#installing indy-node
-WORKDIR indy-node
-RUN pip3 install --upgrade setuptools
-RUN pip3 install -e .[tests]
-
-#installing indy-plenum
-WORKDIR ../indy-plenum
-RUN pip3 install -e .[tests]
-
+RUN echo "#copying important files in the container"
+             
 #installing flake8
 RUN pip3 install flake8
-
 
 #installing indy-sdk
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68DB5E88
@@ -84,6 +74,24 @@ RUN apt-get update
 RUN apt-get update
 RUN apt-get install -y docker-ce
 
-#post installation steps of docker
-RUN usermod -aG docker `whoami`
-RUN service docker start
+RUN echo "service docker start" >> ~/.bashrc
+RUN echo "docker load --input ./indy_pool.tar" >> ~/.bashrc
+
+
+#copying important files
+COPY indy-node-temp indy-node
+COPY indy-sdk-temp indy-sdk
+COPY indy-plenum-temp indy-plenum
+#installing indy-node
+WORKDIR indy-node
+RUN pip3 install --upgrade setuptools
+RUN pip3 install -e .[tests]
+
+#installing indy-plenum
+WORKDIR ../indy-plenum
+RUN pip3 install -e .[tests]
+
+WORKDIR ../
+
+
+
