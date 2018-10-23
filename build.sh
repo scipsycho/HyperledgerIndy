@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#uncomment these lines if you do not have these repos cloned into the current
+#directory
 #git clone https://github.com/hyperledger/indy-sdk  indy-sdk-temp
 #git clone https://github.com/hyperledger/indy-node indy-node-temp
 #git clone https://github.com/hyperledger/indy-plenum indy-plenum-temp 
